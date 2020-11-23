@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * @author brunomnsilva
  */
-public class BookDaoInMemory extends BookDao {
+public class BookDaoInMemory implements BookDao {
 
     /* in-memory database */
     protected List<Book> books;

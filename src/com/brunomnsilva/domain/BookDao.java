@@ -7,12 +7,10 @@ import java.util.Collection;
 /**
  * @author brunomnsilva
  */
-public abstract class BookDao implements Dao<Book, String> {
+public interface BookDao extends Dao<Book, String> {
 
     /* Aditional operations besides CRUD (inherited): */
 
-    public abstract Collection<Book> getAllFromAuthorSearch(String queryString);
-
-    public abstract Collection<Book> getAllFromYearRange(int yearStart, int yearEnd);
-
+    Collection<Book> getAllFromAuthorSearch(String queryString);
+    Collection<Book> getAllFromYearRange(int yearStart, int yearEnd);
 }

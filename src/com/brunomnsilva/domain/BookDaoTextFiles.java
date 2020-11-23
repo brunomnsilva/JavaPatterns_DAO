@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * @author brunomnsilva
  */
-public class BookDaoTextFiles extends BookDao {
+public class BookDaoTextFiles implements BookDao {
 
     private static final String DB_FOLDER = "storage";
     private static final String FILE_EXTENSION = ".book";
