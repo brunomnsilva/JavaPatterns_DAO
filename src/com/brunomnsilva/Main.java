@@ -9,7 +9,10 @@ public class Main {
 
     public static void main(String[] args) {
 
-        BookDao dao = BookDaoFactory.create(BookDaoFactory.Type.TEXT);
+        //TODO: implement simple factory
+        BookDao dao = new BookDaoVolatileList();
+        //BookDao dao = new BookDaoSerialization();
+        //BookDao dao = new BookDaoTextFiles();
 
         /* only runs if there is no persisted data inside the dao */
         if(dao.count() == 0) {
@@ -43,7 +46,7 @@ public class Main {
                         break;
                     case "add":
                         input = ask(keyboard, new String[]{"ISBN", "Author", "Title", "Year"});
-                        Book book = BookFactory.createFromStrings(input[0],input[1],input[2],input[3]);
+                        Book book = Book.createFromStrings(input[0],input[1],input[2],input[3]);
                         dao.save(book);
                         break;
                     case "del":

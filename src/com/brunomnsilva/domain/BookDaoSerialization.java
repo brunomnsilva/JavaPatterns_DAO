@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * @author brunomnsilva
  */
-public class BookDaoSerialization extends BookDaoInMemory {
+public class BookDaoSerialization extends BookDaoVolatileList {
 
     private static final String STORAGE_FILENAME = "storage/books.data";
 

@@ -9,12 +9,12 @@ import java.util.List;
 /**
  * @author brunomnsilva
  */
-public class BookDaoInMemory implements BookDao {
+public class BookDaoVolatileList implements BookDao {
 
     /* in-memory database */
     protected List<Book> books;
 
-    public BookDaoInMemory() {
+    public BookDaoVolatileList() {
         books = new ArrayList<>();
     }
 

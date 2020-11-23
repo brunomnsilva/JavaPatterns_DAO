@@ -125,7 +125,7 @@ public class BookDaoTextFiles implements BookDao {
             String contents = br.readLine();
             //String[] fields = contents.split(";");
             //read = new Book(fields[0],fields[1],fields[2],Integer.valueOf(fields[3]));
-            read = BookFactory.createFromString(contents);
+            read = Book.createFromString(contents);
 
             br.close();
         } catch (IOException e) {
