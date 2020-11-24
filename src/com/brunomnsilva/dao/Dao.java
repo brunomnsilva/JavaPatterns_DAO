@@ -15,7 +15,7 @@ public interface Dao<T, K> {
     /**
      * Returns the transfer object for the key <code>key</code>.
      * @param key data key
-     * @return transfer object
+     * @return transfer object; or null if does not exist
      */
     T get(K key);
 

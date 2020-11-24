@@ -10,9 +10,9 @@ public class Main {
     public static void main(String[] args) {
 
         //TODO: implement simple factory
-        BookDao dao = new BookDaoVolatileList();
+        //BookDao dao = new BookDaoVolatileList();
         //BookDao dao = new BookDaoSerialization();
-        //BookDao dao = new BookDaoTextFiles();
+        BookDao dao = new BookDaoTextFiles();
 
         /* only runs if there is no persisted data inside the dao */
         if(dao.count() == 0) {
@@ -38,7 +38,7 @@ public class Main {
                 System.out.print("Type command > ");
                 String command = keyboard.nextLine().toLowerCase();
 
-                switch(command) {
+                switch(command.trim()) {
                     case "get":
                         input = ask(keyboard, new String[]{"ISBN"});
                         Book bookQuery = dao.get(input[0]);
