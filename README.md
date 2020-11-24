@@ -38,6 +38,11 @@ promoting decoupling of classes containing *business logic* from *data access* a
         
     - Change the `main` method to use the factory.
 
-4. TODO 
+4. Provide a *concrete BookDao* implementation that persists data in *JSON* format.
+    - Name it `BookDaoJSON`;
+    - Download *GSON jar* library (put it in `/lib`) from https://search.maven.org/artifact/com.google.code.gson/gson/2.8.6/jar
+    - Similar implementation to `BookDaoSerialization`, but the `saveStorage` and `readStorage` private methods use the *GSON* library;
+    - Use the following tutorial:
+        - https://futurestud.io/tutorials/gson-mapping-of-arrays-and-lists-of-objects
 
 Solutions can be found [here](SOLUTION.md).

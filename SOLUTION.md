@@ -150,3 +150,77 @@ Solutions of exercises
     
     //...
     ```
+   
+4. Implementation can be as follows:
+
+    ```java
+    import com.brunomnsilva.dao.DaoException;
+    import com.google.gson.Gson;
+    import com.google.gson.reflect.TypeToken;
+    
+    import java.io.*;
+    import java.lang.reflect.Type;
+    import java.util.ArrayList;
+    
+    public class BookDaoJSON extends BookDaoVolatileList {
+    
+        private static final String STORAGE_FILENAME = "storage/books.json";
+    
+        public BookDaoJSON() {
+            super();
+            readStorage();
+        }
+    
+        private void saveStorage() {
+            try {
+                Gson gson = new Gson();
+                Type bookListType = new TypeToken<ArrayList<Book>>(){}.getType();
+                FileWriter fr = new FileWriter(STORAGE_FILENAME);
+    
+                String json = gson.toJson(this.books, bookListType);
+    
+                fr.write(json);
+    
+                fr.close();
+    
+            } catch (IOException e) {
+                System.err.println(e.getMessage());
+            }
+        }
+    
+        private void readStorage() {
+            try {
+                Gson gson = new Gson();
+                Type bookListType = new TypeToken<ArrayList<Book>>(){}.getType();
+                FileReader fr = new FileReader(STORAGE_FILENAME);
+    
+                this.books = gson.fromJson(fr, bookListType);
+    
+                fr.close();
+            } catch (IOException  e) {
+                System.err.println(e.getMessage());
+            }
+        }
+    
+        @Override
+        public void save(Book instance) throws DaoException {
+            super.save(instance);
+    
+            saveStorage();
+        }
+    
+        @Override
+        public void update(Book instance) throws DaoException {
+            super.update(instance);
+    
+            saveStorage();
+        }
+    
+        @Override
+        public Book delete(String key) {
+            Book deleted = super.delete(key);
+            saveStorage();
+            return deleted;
+        }
+    }
+    ```
