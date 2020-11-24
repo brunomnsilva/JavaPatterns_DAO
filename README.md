@@ -40,4 +40,4 @@ promoting decoupling of classes containing *business logic* from *data access* a
 
 4. TODO 
 
-Solutions can be found [here](SOLUTIONS.md).
+Solutions can be found [here](SOLUTION.md).

@@ -64,7 +64,7 @@ public class Main {
                         results.forEach(b -> System.out.println(b));
                         break;
                     case "range":
-                        System.out.println("[Not implemented]"); /* TODO: implement this command */
+
                         break;
                     case "count":
                         System.out.println("Total records: " + dao.count());
